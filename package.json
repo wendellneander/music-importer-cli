@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "ffmetadata": "^1.7.0",
+    "ffmpeg": "^0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "superagent": "^8.0.3",
+    "ytdl-core": "^4.11.2"
+  }
+}
