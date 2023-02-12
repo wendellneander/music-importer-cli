@@ -1,1 +1,8 @@
 **node_modules
+.DS_Store
+.idea
+/importer/downloads
+/importer/playlists
+importer/.DS_Store
+importer/downloads/.DS_Store
+.env

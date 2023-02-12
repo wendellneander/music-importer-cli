@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/cli-dj-music-manager.iml" filepath="$PROJECT_DIR$/.idea/cli-dj-music-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/music-importer-cli.iml" filepath="$PROJECT_DIR$/.idea/music-importer-cli.iml" />
     </modules>
   </component>
 </project>

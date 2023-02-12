@@ -1,4 +1,4 @@
-class Playlist {
+export default class Playlist {
   constructor({ id, title, author, artwork, tracks }) {
     this.id = id
     this.title = title
@@ -7,5 +7,3 @@ class Playlist {
     this.tracks = tracks
   }
 }
-
-module.exports = Playlist

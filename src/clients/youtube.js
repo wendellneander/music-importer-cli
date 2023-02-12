@@ -1,6 +1,6 @@
-const superagent = require('superagent')
+import superagent from 'superagent'
 
-class YouTubeClient {
+export default class YouTubeClient {
   constructor(apiKey) {
     this.API_URL = 'https://www.googleapis.com/youtube/v3'
     this.API_KEY = apiKey
@@ -18,5 +18,3 @@ class YouTubeClient {
       })
   }
 }
-
-module.exports = YouTubeClient

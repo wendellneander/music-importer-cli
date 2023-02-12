@@ -1,6 +1,6 @@
-const superagent = require('superagent')
+import superagent from 'superagent'
 
-class SpotifyClient {
+export default class SpotifyClient {
   constructor(accessToken) {
     this.API_URL = 'https://api.spotify.com/v1'
     this.accessToken = accessToken
@@ -34,5 +34,3 @@ class SpotifyClient {
       .query({ limit, offset })
   }
 }
-
-module.exports = SpotifyClient

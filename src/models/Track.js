@@ -1,4 +1,4 @@
-class Track {
+export default class Track {
   constructor({ id, title, artists, artwork, album, duration, youtubeId, youtubeUrl, titleWithArtists, filePath, fileName }) {
     this.id = id
     this.title = title
@@ -13,5 +13,3 @@ class Track {
     this.fileName = fileName
   }
 }
-
-module.exports = Track
