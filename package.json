@@ -4,7 +4,13 @@
   "description": "A cli to import music from youtube or spotify",
   "author": "Wendell Neander",
   "main": "main.js",
+  "bin": "main.js",
   "type": "module",
+  "pkg": {
+    "scripts": "src/**/*.js",
+    "targets": ["node18-linux-x64", "node18-macos-x64", "node18-win-x64"],
+    "outputPath": "dist"
+  },
   "scripts": {
     "start": "node main.js"
   },

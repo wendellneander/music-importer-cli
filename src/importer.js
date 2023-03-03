@@ -29,7 +29,7 @@ export default class Importer {
     this._trackList = []
     this._folderTitle = ''
   }
-
+x
   /**
    * @returns {Promise<void>}
    */
@@ -84,8 +84,7 @@ export default class Importer {
    * @param {string} playlistId
    * @return {Playlist}
    */
-  async loadPlaylistFromYT(playlistId) {
-  }
+  async loadPlaylistFromYT(playlistId) {}
 
   /**
    * Get the video id on YouTube
@@ -108,9 +107,9 @@ export default class Importer {
     const downloadIndex = this._downloads.length
     this.__log(`${downloadIndex} - ${track.titleWithArtists}: Download iniciado`)
     this.__log(`Caminho do arquivo: ${track.filePath}`)
-    if(!fs.existsSync(track.filePath)) {
-      fs.writeFileSync(track.filePath)
-    }
+    // if(!fs.existsSync(track.filePath)) {
+    //   fs.writeFileSync(track.filePath, '')
+    // }
 
     try {
       const stream = ytdl(track.youtubeUrl, {quality: 'highestaudio', filter: 'audioonly'})
@@ -231,24 +230,23 @@ export default class Importer {
       return false
     }
 
-    const videoId = await this.getVideoIdFromYouTube(track)
-    const trackIndex = this.playlist.tracks.findIndex(t => t.id === track.id)
-    const youtubeUrl = `https://www.youtube.com/watch?v=${videoId}`
     const directoryPath = this.__createDirectory(this._folderTitle)
     const filePath = `${directoryPath}/${track.titleWithArtists}.mp3`
     const fileName = `${track.titleWithArtists}.mp3`
+    if (this.__fileExists(filePath)){
+      this.__log(`Skipped - ${fileName}`)
+      await this.__downloadNextTrack()
+      return track
+    }
+    const videoId = await this.getVideoIdFromYouTube(track)
+    const trackIndex = this.playlist.tracks.findIndex(t => t.id === track.id)
+    const youtubeUrl = `https://www.youtube.com/watch?v=${videoId}`
     track.youtubeUrl = youtubeUrl
     track.filePath = filePath
     track.fileName = fileName
     track.directoryPath = directoryPath
     this.playlist.tracks[trackIndex] = track
-
-    if (!this.__fileExists(filePath)) {
-      this.downloadAudioFromDataSource(track)
-    } else {
-      this.__log(`Skipped - ${fileName}`)
-      await this.__downloadNextTrack()
-    }
+    this.downloadAudioFromDataSource(track)
     return track
   }
 

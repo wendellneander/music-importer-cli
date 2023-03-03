@@ -18,7 +18,6 @@ inquirer.prompt([
     type: 'input',
     name: 'playlist_id',
     message: 'Insira a url da música ou playlist:',
-    default: 'https://open.spotify.com/playlist/1IdHsF58U4bAMabaRoBcFS?si=74998dfcc52e4d68',
     validate: (url) => {
       if (url.includes('open.spotify.com/playlist/')) {
         const split = url.split('open.spotify.com/playlist/')
@@ -39,6 +38,7 @@ inquirer.prompt([
     type: 'input',
     name: 'folder_path',
     message: 'Salver arquivos em: (caminho completo da pasta)',
+    default: '/Users/wneander/Desktop',
     validate: (path) => {
       return fs.existsSync(path)
     }
